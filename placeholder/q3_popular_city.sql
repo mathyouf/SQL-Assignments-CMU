@@ -1,0 +1,1 @@
+select distinct stn.start_station_name, round(cast(count(*) as float)/(select count(*) from trip),4) from (select start_station_name from trip where start_station_name!=end_station_name union all select end_station_name from trip) as stn group by stn.start_station_name order by count(*) desc, stn.start_station_name;

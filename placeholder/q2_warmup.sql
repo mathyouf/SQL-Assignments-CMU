@@ -1,0 +1,1 @@
+select distinct city, count(city) from station group by city order by count(city) desc, city;
